@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using workshop.wwwapi.Data;
 using workshop.wwwapi.Endpoints;
 using workshop.wwwapi.Repository;
 
@@ -9,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IRepository, CarRepository>();
-
+builder.Services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("CarDb"));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
