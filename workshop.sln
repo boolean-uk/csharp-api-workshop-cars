@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "workshop.wwwapi", "workshop.wwwapi\workshop.wwwapi.csproj", "{E5F49750-D413-4DA8-B0ED-57A5D897EDF7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C0EB2B87-8E08-4933-B75A-2610E90AD99A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{778369DA-05FA-417D-BD32-254DFD8E2A9F}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 		README.md = README.md
@@ -26,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {78531DFA-7939-4B57-92E6-6804436DE818}
+		SolutionGuid = {0B404A0D-ADC8-4A7F-B806-959B15352DBD}
 	EndGlobalSection
 EndGlobal

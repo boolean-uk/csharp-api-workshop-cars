@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using workshop.wwwapi.Data;
 using workshop.wwwapi.Endpoints;
 using workshop.wwwapi.Repository;
+using FluentValidation;
+using workshop.wwwapi.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,9 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddValidatorsFromAssemblyContaining(typeof(CarValidator));
 builder.Services.AddScoped<IRepository, CarRepository>();
-builder.Services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("CarDb"));
+builder.Services.AddDbContext<DataContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
