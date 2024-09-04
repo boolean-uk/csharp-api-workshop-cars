@@ -3,12 +3,13 @@ using workshop.wwwapi.ViewModels;
 
 namespace workshop.wwwapi.Repository
 {
-    public interface IRepository
+    public interface IRepository<T> 
     {
-        Task<List<Car>> GetCars();
-        Task<Car> AddCar(Car entity);
-        Task<bool> DeleteCar(int id);
-        Task<Car> GetACarById(int id);
-        Task<Car> UpdateCarById(int id, Car model);
+        Task<IEnumerable<T>> Get();
+        Task<T> Insert(T entity);
+        Task<T> Update(T entity);
+        Task<T> Delete(object id);
+        Task Save();
+        Task<T> GetById(int id);
     }
 }

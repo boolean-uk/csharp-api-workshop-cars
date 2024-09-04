@@ -4,6 +4,7 @@ using workshop.wwwapi.Endpoints;
 using workshop.wwwapi.Repository;
 using FluentValidation;
 using workshop.wwwapi.Validators;
+using workshop.wwwapi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddValidatorsFromAssemblyContaining(typeof(CarValidator));
-builder.Services.AddScoped<IRepository, CarRepository>();
+builder.Services.AddValidatorsFromAssemblyContaining(typeof(CarPostValidator));
+builder.Services.AddScoped<IRepository<Car>, Repository<Car>>();
 builder.Services.AddDbContext<DataContext>();
 var app = builder.Build();
 

@@ -8,6 +8,5 @@ namespace workshop.wwwapi.ViewModels
         public string Make { get; set; }
         [Required(ErrorMessage = "Model is required")]
         public string Model { get; set; }
-        public int DoorCount { get; set; }
     }
 }
