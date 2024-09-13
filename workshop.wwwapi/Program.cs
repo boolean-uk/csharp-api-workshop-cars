@@ -4,6 +4,7 @@ using workshop.wwwapi.Endpoints;
 using workshop.wwwapi.Repository;
 using FluentValidation;
 using workshop.wwwapi.Validators;
+using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +14,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddValidatorsFromAssemblyContaining(typeof(CarPostValidator));
 builder.Services.AddScoped<IRepository, CarRepository>();
-builder.Services.AddDbContext<DataContext>();
+builder.Services.AddDbContext<DataContext>(opt => {
+    opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnectionString"));
+    opt.LogTo(message => Debug.WriteLine(message));
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

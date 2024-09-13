@@ -38,7 +38,7 @@ namespace workshop.wwwapi.Endpoints
             {
                 return TypedResults.Problem(ex.Message);
             }
-}
+        }
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         private static async Task<IResult> DeleteCar(IRepository repository, int id)
@@ -66,7 +66,8 @@ namespace workshop.wwwapi.Endpoints
                 if(entity==null) return Results.NotFound();
 
                 entity.Make = !string.IsNullOrEmpty(model.Make) ? model.Make : entity.Make;
-                entity.Model = !string.IsNullOrEmpty(model.Model) ? model.Model : entity.Model;               
+                entity.Model = !string.IsNullOrEmpty(model.Model) ? model.Model : entity.Model;
+                entity.Wheels = model.Wheels != null ? model.Wheels.Value : entity.Wheels;
                 var result = await repository.UpdateCarById(id, entity);
                 return TypedResults.Ok(new { Make = entity.Make, Model = entity.Model });
             }
