@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  workshop.wwwapi:
+    image: ${DOCKER_REGISTRY-}workshopwwwapi
+    build:
+      context: .
+      dockerfile: workshop.wwwapi/Dockerfile
