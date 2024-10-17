@@ -368,3 +368,11 @@ FodyWeavers.xsd
 */**/obj/Release   
 /workshop.wwwapi/appsettings.json
 /workshop.wwwapi/appsettings.Development.json
+/.containers
+/obj
+launchSettings.json
+docker*.*
+docker-compose.DocProject
+docker-compose.yml
+docker-compose.override.yml
+
