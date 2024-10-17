@@ -8,7 +8,8 @@ namespace workshop.wwwapi.Validators
     {
         public CarPostValidator()
         {
-            RuleFor(c => c.Make).MaximumLength(255).Must(c => c.Length==1).WithMessage("lengh must be 1!").NotEmpty(); // an unreasonable validation to show how this works!
+            //RuleFor(c => c.Make).MaximumLength(255).Must(c => c.Length==1).WithMessage("lengh must be 1!").NotEmpty(); // an unreasonable validation to show how this works!
+            RuleFor(c => c.Make).MaximumLength(255).Must(c => c.Length >= 1).WithMessage("lengh must be > 1!").NotEmpty(); 
             RuleFor(c => c.Model).MaximumLength(255).NotEmpty();
         }
     }

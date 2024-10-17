@@ -15,7 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddValidatorsFromAssemblyContaining(typeof(CarPostValidator));
 builder.Services.AddScoped<IRepository, CarRepository>();
 builder.Services.AddDbContext<DataContext>(opt => {
-    opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnectionString"));
+    opt.UseNpgsql(builder.Configuration.GetConnectionString("DockerPostgres"));
     opt.LogTo(message => Debug.WriteLine(message));
 });
 var app = builder.Build();
@@ -28,7 +28,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+bool run = false;
+if(!run)
+{
+    app.ApplyProjectMigrations();
+    run = true;
 
+}
 app.ConfigureCarEndpoint();
 
 app.Run();
